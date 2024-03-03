@@ -82,6 +82,17 @@ jobs:
           mvn verify
       - name: Show Karate Cucumber Report
         run: C:\Progra~2\Microsoft\Edge\Application\msedge.exe C:/actions-runner/_work/GitHubActionsDemo/GitHubActionsDemo/main/Karate/target/karate-reports/karate-summary.html
+  Container-HealthCheck:
+    name: Execute Container HealtCheck
+    runs-on: self-hosted
+    needs: [Docker-Deploy] 
+    steps:
+      - name: Get container status
+        uses: stringbean/docker-healthcheck-action@v1
+        id: githubactionsdemo
+        with:
+          container: githubactionsdemo
+      - run: echo "Container is ${{ steps.missing-container.outputs.status  }}"        
   Xray-Upload:
     name: Upload Report in Xray
     runs-on: self-hosted
