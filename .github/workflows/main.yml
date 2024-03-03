@@ -92,6 +92,8 @@ jobs:
         id: githubactionsdemo
         with:
           container: githubactionsdemo
+          require-status: running
+          require-healthy: true
       - run: echo "Container is ${{ steps.missing-container.outputs.status  }}"        
   Xray-Upload:
     name: Upload Report in Xray
