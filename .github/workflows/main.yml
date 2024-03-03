@@ -56,6 +56,8 @@ jobs:
     steps:
       - name: Stop old Docker container
         run: docker stop $(docker ps -a -q)
+      - name: Delete old Docker container
+        run: docker rm $(docker ps -a -q)
       - name: Deploy new Docker container
         run: docker run --name githubactionsdemo -p 49160:8080 -d arndvorrath/githubactionsdemo:latest     
   Selenium-Test:
