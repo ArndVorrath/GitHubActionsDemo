@@ -103,7 +103,7 @@ jobs:
     needs: [Selenium-Test, Karate-Test] 
     environment:
       name: staging
-      url: https://proactioneu.ent.cgi.com/jira/browse/TECHRADAR-396
+      url: https://proactionsc.ent.cgi.com/jira/browse/TECHRADAR-396
     steps:
       - name: Upload Report in Xray     
         run: >
@@ -112,7 +112,7 @@ jobs:
           -X POST 
           -H "Authorization:Bearer NzQ3ODI1NzE4NTg3OtuwGrJJJWBd1fg2oXpcSQi9YmFg" 
           --data @C:\actions-runner\_work\GitHubActionsDemo\GitHubActionsDemo\main\Selenium\target\cucumber.json  
-          "https://proactioneu.ent.cgi.com/jira/rest/raven/1.0/import/execution/cucumber"
+          "https://proactionsc.ent.cgi.com/jira/rest/raven/1.0/import/execution/cucumber"
   Mail-Send:
     name: Send a Notification email
     runs-on: self-hosted
